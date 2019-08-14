@@ -80,23 +80,22 @@ fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 	}
 
 
-	location /blog/ {
-	try_files $uri $uri/ /blog/index.php?$args;
+	location /blog-coded/ {
+	try_files $uri $uri/ /blog-coded/index.php?$args;
 	allow 192.168.1.0/24;
 	allow 127.0.0.1;
 	#deny all;
 	}
-	location ~ /blog/.*\.php$ {
+	location ~ /blog-coded/.*\.php$ {
 	include snippets/fastcgi-php.conf;
 	allow 192.168.1.0/24;
 	allow 127.0.0.1;
+	#deny all;
 	include fastcgi_params;
 	fastcgi_pass unix:/var/run/php/php5.6-fpm.sock;
 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 	fastcgi_intercept_errors on;
 	}
-
-	
 
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/webterse.com/fullchain.pem; # managed by Certbot
