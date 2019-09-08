@@ -1,2 +1,2 @@
 # virtual-host-files
-virtual host files, domain: www and subdomain: blog-code
+virtual host files (3 in total), www, blog-code and memail.
