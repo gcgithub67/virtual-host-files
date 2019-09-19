@@ -85,7 +85,7 @@ server {
 	ssl_verify_client on;
   
   location / {
-		if ($ssl_client_s_dn !~* "gaurav@webterse.com|client1@webterse.com") {
+		if ($ssl_client_s_dn !~* "firstname@webterse.com|client1@webterse.com") {
 			return 301 http://www.jurassicsystems.com/;
 		}
 		error_page 403 @fallback;
